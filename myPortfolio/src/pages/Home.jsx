@@ -3,114 +3,84 @@ import Navbar from '../components/Navbar.jsx';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { ReactTyped } from "react-typed";
 import AnimatedOnScroll from '../components/AnimatedOnScroll.jsx';
+
 const HomePage = () => {
   return (
     <div
-      id='home'
-      className="relative h-full min-h-screen overflow-hidden" style={{color: 'white'}}
+      id="home"
+      className="relative min-h-screen overflow-hidden text-white font-['Roboto']"
     >
+      {/* Navbar */}
       <Navbar />
-      {/* Text Content on Left */}
-      
-          <div
-        style={{
-          fontFamily: "'Roboto', sans-serif",
-          position: 'absolute',
-          top: '50%',
-          left: '0',
-          transform: 'translateY(-50%)',
-          paddingLeft: '2rem',
-          width: '50%',
-          zIndex: 1,
-        }}
-      >
-        <AnimatedOnScroll animation="fade-up">
-        <div style={{ maxWidth: '600px', lineHeight: '1.2' }}>
-          <div style={{ fontWeight: 500, fontSize: '40px', letterSpacing:'0.2rem'}}>Hey!! It's Me</div>
-          <div
-            style={{
-              width:'110%',
-              marginTop: '0.5rem',
-              fontSize: '70px',
-              fontWeight: 1000,
-              background: 'linear-gradient(to right, #00c6ff, #0072ff)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-            }}
-          >
-            Rudra Pratap Padhi
-          </div>
-        </div>
 
-        <div
-          style={{
-            fontSize: '40px',
-            marginTop: '3.5rem',
-            fontWeight: '500',
-          }}
-        >
-          I am a{" "}
-          <ReactTyped strings={["Fullstack Web Developer"]} typeSpeed={70} style={{ background: 'linear-gradient(to right, #005bea, #00c6fb, #00f2fe, #e100ff)',WebkitBackgroundClip: 'text',WebkitTextFillColor: 'transparent'}}/>
-        </div>
-
-        <div>
-  <button
-    style={{
-      marginTop:'1.5rem',
-      fontSize: '24px',
-      padding: '12px 20px',
-      borderRadius: '8px',
-      backgroundColor: '#0072ff',
-      color: 'white',
-      border: 'none',
-      cursor: 'pointer',
-      fontWeight: '600',
-      transition: 'box-shadow 0.3s ease, background-color 0.3s ease',
-      boxShadow: 'none',
-    }}
-    onMouseEnter={e => {
-      e.currentTarget.style.boxShadow = '0 0 20px 8px rgba(0, 114, 255, 0.3)';
-      e.currentTarget.style.backgroundColor = '#005bb5';
-    }}
-    onMouseLeave={e => {
-      e.currentTarget.style.boxShadow = 'none';
-      e.currentTarget.style.backgroundColor = '#0072ff';
-    }}
-  >
-    Resume
-  </button>
-</div>
-
-
-        </AnimatedOnScroll>
-      </div>
-      
-      
-
-      {/* Lottie Animation on Right Side */}
-      
-            <div
-        style={{
-          position: 'absolute',
-          top: '50%',
-          right: 0,
-          transform: 'translateY(-50%)',
-          width: '800px',
-          height: 'auto',
-          filter: 'drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.5))',
-        }}
-      >
-        <AnimatedOnScroll animation='fade-left'>
-        <DotLottieReact
-          src="https://lottie.host/53faa675-d293-43bb-a39d-3773dc3781da/sDbT4Nf3b6.lottie"
-          loop
-          autoplay
+      {/* Welcome Message */}
+      <div className="w-full relative top-25 text-center text-2xl md:text-3xl lg:text-5xl font-semibold z-10">
+        <ReactTyped
+          strings={["&lt;&gt; Welcome To My Portfolio &lt;/&gt;"]}
+          typeSpeed={70}
         />
-        </AnimatedOnScroll>
       </div>
 
-      
-          </div>
+      {/* Main Content Section */}
+      <div className="relative flex flex-col lg:flex-row items-center justify-between gap-y-20 px-4 pt-40 lg:pt-10 lg:top-50">
+        
+        {/* Text Section */}
+        <div className="relative w-full  z-10 text-center lg:text-left lg:pl-4 xl:pl-8">
+          <AnimatedOnScroll animation="fade-up">
+            <div className="mx-auto lg:mx-0 overflow-x-visible">
+              <div className="font-medium text-xl xs:text-2xl sm:text-3xl md:text-4xl whitespace-nowrap tracking-tight sm:tracking-normal leading-tight text-[clamp(2.1rem,7vw,4rem)]">
+                Hey!! It's Me
+              </div>
+
+              <div className="mt-1 font-extrabold bg-gradient-to-r from-[#00c6ff] to-[#0072ff] bg-clip-text text-transparent overflow-visible tracking-tight sm:tracking-normal leading-tight lg:text-6xl text-[clamp(2.2rem,7vw,4rem)]">
+                Rudra Pratap Padhi
+              </div>
+
+
+              <div
+                className="mt-3 font-semibold whitespace-nowrap"
+                style={{
+                  fontSize: 'clamp(1.2rem, 5vw, 2.2rem)',
+                  lineHeight: '1.1',
+                }}
+              >
+                I am a <div className="bg-gradient-to-r from-[#005bea] via-[#00c6fb] to-[#e100ff] bg-clip-text text-transparent inline-block">Fullstack Web Developer</div>
+              </div>
+
+              <div>
+                <button className="mt-5 text-white text-base xs:text-lg sm:text-xl py-2 px-4 rounded-lg font-semibold bg-[#0072ff] transition-all duration-300 hover:shadow-[0_0_20px_8px_rgba(0,114,255,0.3)] hover:bg-[#005bb5] whitespace-nowrap">
+                  Resume
+                </button>
+              </div>
+            </div>
+          </AnimatedOnScroll>
+        </div>
+
+        {/* Lottie Animation */}
+        <div className="w-full flex justify-center lg:justify-end items-center lg:translate-x-30 xl:translate-x-50">
+          <AnimatedOnScroll animation="fade-left">
+            <div
+              className="w-full"
+              style={{
+                maxWidth: 'min(100%, 550px)',
+                transform: 'scale(1.2)',
+              }}
+            >
+              <DotLottieReact
+                src="https://lottie.host/53faa675-d293-43bb-a39d-3773dc3781da/sDbT4Nf3b6.lottie"
+                loop
+                autoplay
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  maxWidth: 'clamp(500px, 55vw, 750px)',
+                }}
+              />
+            </div>
+          </AnimatedOnScroll>
+        </div>
+      </div>
+    </div>
   );
 };
 
