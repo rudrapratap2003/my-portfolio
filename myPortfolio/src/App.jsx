@@ -3,6 +3,7 @@ import './App.css'
 import Home from './pages/Home'
 import About from './pages/About'
 import ProjectSection from './pages/Projects'
+import Skills from './pages/Skills'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -23,7 +24,9 @@ function App() {
       {/* Content Sections */}
       <Home />
       <About />
+      <Skills/>
       <ProjectSection/>
+      
     </div>
     </>
   )

@@ -6,14 +6,9 @@ import AnimatedOnScroll from '../components/AnimatedOnScroll.jsx';
 
 const HomePage = () => {
   return (
-    <div
-      id="home"
-      className="relative min-h-screen overflow-hidden text-white font-['Roboto']"
-    >
-      {/* Navbar */}
+    <div id="home" className="relative min-h-[90vh] overflow-hidden text-white font-['Roboto']">
       <Navbar />
 
-      {/* Welcome Message */}
       <div className="w-full relative top-25 text-center text-2xl md:text-3xl lg:text-5xl font-semibold z-10">
         <ReactTyped
           strings={["&lt;&gt; Welcome To My Portfolio &lt;/&gt;"]}
@@ -21,10 +16,7 @@ const HomePage = () => {
         />
       </div>
 
-      {/* Main Content Section */}
       <div className="relative flex flex-col lg:flex-row items-center justify-between gap-y-20 px-4 pt-40 lg:pt-10 lg:top-50">
-        
-        {/* Text Section */}
         <div className="relative w-full  z-10 text-center lg:text-left lg:pl-4 xl:pl-8">
           <AnimatedOnScroll animation="fade-up">
             <div className="mx-auto lg:mx-0 overflow-x-visible">
@@ -35,7 +27,6 @@ const HomePage = () => {
               <div className="mt-1 font-extrabold bg-gradient-to-r from-[#00c6ff] to-[#0072ff] bg-clip-text text-transparent overflow-visible tracking-tight sm:tracking-normal leading-tight lg:text-6xl text-[clamp(2.2rem,7vw,4rem)]">
                 Rudra Pratap Padhi
               </div>
-
 
               <div
                 className="mt-3 font-semibold whitespace-nowrap"
@@ -56,8 +47,7 @@ const HomePage = () => {
           </AnimatedOnScroll>
         </div>
 
-        {/* Lottie Animation */}
-        <div className="w-full flex justify-center lg:justify-end items-center lg:translate-x-30 xl:translate-x-50">
+        <div className="w-full flex justify-center lg:justify-end items-center">
           <AnimatedOnScroll animation="fade-left">
             <div
               className="w-full"
