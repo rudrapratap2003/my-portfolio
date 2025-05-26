@@ -6,7 +6,7 @@ import AnimatedOnScroll from '../components/AnimatedOnScroll.jsx';
 
 const HomePage = () => {
   return (
-    <div id="home" className="relative min-h-[90vh] overflow-hidden text-white font-['Roboto']">
+    <div id="home" className="relative min-h-[80vh] overflow-hidden text-white font-['Roboto']">
       <Navbar />
 
       <div className="w-full relative top-25 text-center text-2xl md:text-3xl lg:text-5xl font-semibold z-10">
