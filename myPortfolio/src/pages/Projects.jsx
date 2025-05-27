@@ -57,10 +57,10 @@ export default function ProjectSection() {
       </AnimatedOnScroll>
 
       <AnimatedOnScroll animation='fade-right'>
-  <div className="w-full max-w-6xl mx-auto border-1 border-gray-400 rounded-2xl p-5">
+  <div className="w-full max-w-6xl mx-auto border-1 border-gray-400 rounded-2xl p-3 lg:p-0">
     <div className="flex flex-col lg:flex-row items-center justify-between">
       {/* Left Text */}
-      <div className="max-w-2xl text-left space-y-4 p-6">
+      <div className="max-w-5xl lg:max-w-2xl text-left space-y-4 p-6">
         <h2 className="text-3xl font-bold text-white text-left">UBS National Hackathon 2025</h2>
         <p className="w-1/2text-sm md:text-lg text-gray-300">
           I have participated in a national-level hackathon organized by UBS Pune from April 3–4, 2025. Our team built <strong>Rise Up</strong>, a web-based platform that connects NGOs with job-seeking students from rural areas. I was responsible for backend development—managing user authentication, and integrating the database to ensure secure and efficient data flow between users and organizations.

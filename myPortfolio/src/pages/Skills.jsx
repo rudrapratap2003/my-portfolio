@@ -54,7 +54,7 @@ const Skills = () => {
         </AnimatedOnScroll>
         <AnimatedOnScroll animation="fade-right">
             <div className="flex justify-center py-5">
-                <div className="grid gap-14 grid-cols-1 lg:grid-cols-2 w-[60%] lg:w-full max-w-screen-lg">
+                <div className="grid gap-14 grid-cols-1 lg:grid-cols-2 w-[90%] lg:w-full max-w-screen-lg">
                 {skillsData.map((section, index) => (
                     <div
                     key={index}
