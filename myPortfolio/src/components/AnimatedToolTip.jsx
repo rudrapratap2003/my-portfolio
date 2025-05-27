@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   motion,
   useTransform,
@@ -7,8 +7,28 @@ import {
   useSpring,
 } from "motion/react";
 
+// Hook to detect if device supports hover (desktop vs mobile)
+const useCanHover = () => {
+  const [canHover, setCanHover] = useState(false);
+
+  useEffect(() => {
+    const mql = window.matchMedia("(hover: hover)");
+    setCanHover(mql.matches);
+
+    const handler = (e) => setCanHover(e.matches);
+    mql.addEventListener("change", handler);
+
+    return () => mql.removeEventListener("change", handler);
+  }, []);
+
+  return canHover;
+};
+
 export const AnimatedTooltip = ({ items }) => {
+  const canHover = useCanHover();
   const [activeIndex, setActiveIndex] = useState(null);
+  const containerRef = useRef(null);
+
   const springConfig = { stiffness: 100, damping: 5 };
   const x = useMotionValue(0);
   const rotate = useSpring(useTransform(x, [-100, 100], [-45, 45]), springConfig);
@@ -18,19 +38,52 @@ export const AnimatedTooltip = ({ items }) => {
     const halfWidth = event.target.offsetWidth / 2;
     x.set(event.nativeEvent.offsetX - halfWidth);
   };
-  
-  const handleClick = (id) => {
-    setActiveIndex((current) => (current === id ? null : id));
+
+  const handleMouseEnter = (id) => {
+    if (canHover) {
+      setActiveIndex(id);
+    }
   };
 
+  const handleMouseLeave = () => {
+    if (canHover) {
+      setActiveIndex(null);
+    }
+  };
+
+  const handleClick = (id) => {
+    if (!canHover) {
+      setActiveIndex((current) => (current === id ? null : id));
+    }
+  };
+
+  // Click outside to close tooltip (only active on mobile / no hover)
+  useEffect(() => {
+    if (canHover) return; // Only for mobile/touch
+
+    const handleClickOutside = (event) => {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target)
+      ) {
+        setActiveIndex(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [canHover]);
+
   return (
-    <>
+    <div ref={containerRef} className="flex gap-4">
       {items.map((item) => (
         <div
-          className="group relative -mr-4"
+          className="group relative"
           key={item.name}
-          onMouseEnter={() => setActiveIndex(item.id)}
-          onMouseLeave={() => setActiveIndex(null)}
+          onMouseEnter={() => handleMouseEnter(item.id)}
+          onMouseLeave={handleMouseLeave}
           onClick={() => handleClick(item.id)}
         >
           <AnimatePresence mode="popLayout">
@@ -70,6 +123,6 @@ export const AnimatedTooltip = ({ items }) => {
           />
         </div>
       ))}
-    </>
+    </div>
   );
 };

@@ -6,7 +6,7 @@ const About = () => {
     <div id="about" className="min-h-screen flex flex-col px-8 py-12 text-white">
       <AnimatedOnScroll animation="fade-down">
         <h1
-          className="text-5xl font-bold mt-12 text-center"
+          className="text-3xl md:text-5xl font-bold mt-12 text-center"
           style={{
             background: 'linear-gradient(to right, #00c6ff, #0072ff)',
             WebkitBackgroundClip: 'text',
@@ -49,9 +49,7 @@ const About = () => {
 
         <AnimatedOnScroll animation="fade-left">
           <div className="order-2 lg:order-none max-w-3xl">
-            <p
-              className="text-xl text-gray-300 mb-4 tracking-wider"
-            >
+            <p className="text-md md:text-xl text-gray-300 mb-4">
               I am a passionate full-stack web developer with experience in both
               frontend and backend technologies, dedicated to creating efficient,
               user-friendly, and scalable web applications. Working on the backend
@@ -72,16 +70,16 @@ const About = () => {
                   stroke="currentColor"
                   strokeWidth={2}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 14l9-5-9-5-9 5 9 5z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 14l6.16-3.422a12.083 12.083 0 01.84 4.418C19 19.105 15.418 22 12 22s-7-2.895-7-6.004c0-1.529.308-2.982.84-4.418L12 14z"
-                  />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 14l9-5-9-5-9 5 9 5z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 14l6.16-3.422a12.083 12.083 0 01.84 4.418C19 19.105 15.418 22 12 22s-7-2.895-7-6.004c0-1.529.308-2.982.84-4.418L12 14z"
+                />
                 </svg>
                 Education
               </h2>

@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import ProjectSection from './pages/Projects'
 import Skills from './pages/Skills'
+import ContactMe from './pages/ContactMe'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,7 +12,6 @@ function App() {
   return (
     <>
       <div className="relative min-h-screen overflow-x-hidden">
-      {/* Shared Background */}
       <div
         className="fixed top-0 left-0 w-full h-full -z-10"
         style={{
@@ -20,13 +20,11 @@ function App() {
           backgroundSize: 'cover',
         }}
       />
-
-      {/* Content Sections */}
       <Home />
       <About />
       <Skills/>
       <ProjectSection/>
-      
+      <ContactMe/>
     </div>
     </>
   )

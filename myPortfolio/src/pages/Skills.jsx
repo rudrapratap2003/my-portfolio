@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import { AnimatedTooltip } from "../components/AnimatedToolTip";
 import AnimatedOnScroll from "../components/AnimatedOnScroll";
