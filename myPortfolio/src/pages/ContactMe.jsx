@@ -36,8 +36,7 @@ export default function ContactCard() {
       
 
       
-        <div className="flex-grow flex items-center justify-center">
-            <AnimatedOnScroll animation="fade-left">
+        <div className="flex-grow flex items-center justify-center ">
         <motion.div
           layout
           className="w-full max-w-md rounded-2xl shadow-lg p-6"
@@ -97,9 +96,10 @@ export default function ContactCard() {
                 />
                 <textarea
                   placeholder="Your Message"
-                  rows={4}
-                  className="w-full text-white border-0 border-b-2 border-gray-500 bg-transparent px-2 py-2 focus:border-blue-400 focus:outline-none resize-none"
+                    rows={4}
+                    className="w-full text-white border-0 border-b-2 border-gray-500 bg-transparent px-2 py-2 focus:border-blue-400 focus:outline-none resize-none overflow-hidden"
                 />
+
                 <button
                   type="submit"
                   className="bg-blue-500 text-white font-semibold py-2 rounded-md hover:bg-blue-600 transition"
@@ -110,7 +110,6 @@ export default function ContactCard() {
             )}
           </AnimatePresence>
         </motion.div>
-        </AnimatedOnScroll>
       </div>
       
     <div className="max-w-md mx-auto mt-8 text-center text-white mb-10">
