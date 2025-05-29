@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FloatingDock } from "../components/FloatingDock";
 import { FaEnvelope, FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { SiX } from "react-icons/si"; 
 import AnimatedOnScroll from "../components/AnimatedOnScroll";
 
 
-export default function ContactCard() {
+export default function ContactMe() {
   const [showForm, setShowForm] = useState(false);
 
   // Define your dock items (replace icon components with your actual icons)
@@ -111,17 +110,25 @@ export default function ContactCard() {
           </AnimatePresence>
         </motion.div>
       </div>
-      
-    <div className="max-w-md mx-auto mt-8 text-center text-white mb-10">
       <AnimatedOnScroll animation="fade-right"> 
+    <div className="max-w-md mx-auto mt-8 text-center text-white mb-10">
         <p className="text-lg font-semibold mb-2">You can also contact me through</p>
-        <div>
-          <FloatingDock items={dockItems} floatingDockClassName="mx-auto" />
+        <div className="flex justify-center gap-6 mt-4">
+          {dockItems.map((item) => (
+            <a
+              key={item.title}
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:scale-110 transition-transform duration-200"
+              title={item.title}
+            >
+              {item.icon}
+            </a>
+          ))}
         </div>
-      
-      </AnimatedOnScroll>
       </div>
-      
+      </AnimatedOnScroll>
     </div>
   );
 }
